@@ -1,0 +1,64 @@
+#include<cstdio>
+#include<string>
+#include<cstring>
+#include<algorithm>
+#include<cmath>
+#include<iostream>
+using namespace std;
+class CRectangle
+{
+public:
+	int w,h;
+	int Area();
+	int Perimeter();
+	void Init(int w_ ,int h_);
+
+};
+int CRectangle ::Area()
+{
+	return w*h;
+}
+int CRectangle::Perimeter()
+{
+	return 2*(w+h);
+
+}
+void CRectangle :: Init(int _w,int _h)
+{
+	w=_w;h=_h;
+}
+
+int main()
+{
+	CRectangle r;
+	CRectangle *p;
+	p=&r;
+	int w,h;
+	cin>>w >> h;
+	r.Init(w,h);
+	cout<<r.Area()<<endl;
+	cout<<r.Perimeter()<<endl;
+	p->Init(2,3);
+	cout<<p->Area()<<endl;
+	return 0;
+}
+/*
+private变量   只允许class里的函数访问
+public   可以在任意函数里访问 比如main函数
+
+
+
+class之间的运算可以 =  赋值  没别的
+
+如何访问class：
+1. r.Area();						对象.
+
+2. CRectangle r;					指针->
+   CRectangle *p=&r;
+   p->Area();
+
+3.CRectangle r;						引用
+  CRectangle &rr;
+  rr.Area;
+
+*/
